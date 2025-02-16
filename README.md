@@ -2,4 +2,4 @@ In the 2010s, there were desktop widgets called Screenlets designed with Python 
 
     pip install PyGObject pycairo cairocffi
 
-![Görsel](images/.png)
+![Preview](images/python_cpu_gadget.png)
