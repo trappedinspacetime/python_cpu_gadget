@@ -148,20 +148,24 @@ class CircleBands(Gtk.DrawingArea):
         normalized_usage = cpu_usage / 30.0
 
         # İğnenin açısını hesapla (45 derece ile 135 derece arasında)
-        angle = 120 + normalized_usage * 90  # Toplam aralık 90 derece
+        angle = 130 + normalized_usage * 90  # Toplam aralık 90 derece
 
         # İğnenin bitiş noktasının koordinatlarını hesapla
-        # Uzunluğu %30 artır
-        extended_length = length * 1.3
+        # Uzunluğu %40 artır
+        extended_length = length * 1.4
         x = cx + extended_length * math.cos(math.radians(angle))
         y = cy + extended_length * math.sin(math.radians(angle))
 
         # İğneyi çiz
         # Çizgi kalınlığını artır
-        cr.set_line_width(5)
-        cr.set_source_rgb(1, 0, 0)  # İğne rengi: Kırmızı
+        cr.set_line_width(0.2)
+        cr.set_source_rgba(0.0, 0.0, 0.0, 0.8) 
+        cr.set_line_cap(cairo.LINE_CAP_ROUND)
         cr.move_to(cx, cy)
         cr.line_to(x, y)
+        cr.stroke_preserve()
+        cr.set_source_rgba(1.0, 0.0, 0.0, 1.0)  # İğne rengi: Kırmızı
+        cr.set_line_width(6)
         cr.stroke()
 
 class GradientCirclesApp(Gtk.Window):
